@@ -1,6 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.github.dcendents.android-maven'
-version '0.0.1-SNAPSHOT'
 
 
 android {
@@ -11,6 +9,13 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+        flavorDimensions "versionCode"
+
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
+
+
+        // 默认是official的渠道
+        manifestPlaceholders = [CHANNEL_PARAM: "official"]
     }
     buildTypes {
         release {
