@@ -112,7 +112,9 @@ public class EventListenerManager {
                 String methodName = method.getName();
                 method = methodMap.get(methodName);
                 if (method != null) {
-                    return method.invoke(handler, args);
+                    //return method.invoke(handler, args);
+                    //todo 此处不需要进行对注解方法进行赋值
+                    return method.invoke(handler);
                 }
             }
             return null;
