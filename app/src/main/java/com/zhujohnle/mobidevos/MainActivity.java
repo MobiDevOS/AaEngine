@@ -1,4 +1,4 @@
-package com.zhujohnle.mobildevos;
+package com.zhujohnle.mobidevos;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
