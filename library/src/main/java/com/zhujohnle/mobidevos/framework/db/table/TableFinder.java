@@ -2,10 +2,11 @@ package com.zhujohnle.mobidevos.framework.db.table;
 
 import android.database.Cursor;
 
-import com.lidroid.xutils.db.sqlite.ColumnDbType;
-import com.lidroid.xutils.db.sqlite.FinderLazyLoader;
-import com.lidroid.xutils.exception.DbException;
-import com.lidroid.xutils.util.LogUtils;
+import com.zhujohnle.mobidevos.exception.DbException;
+import com.zhujohnle.mobidevos.framework.db.annotation.Finder;
+import com.zhujohnle.mobidevos.framework.db.sqlite.ColumnDbType;
+import com.zhujohnle.mobidevos.framework.db.sqlite.FinderLazyLoader;
+import com.zhujohnle.mobidevos.utils.LogUtils;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -23,8 +24,8 @@ public class TableFinder extends TableColumn {
     /* package */ TableFinder(Class<?> entityType, Field field) {
         super(entityType, field);
 
-        com.lidroid.xutils.db.annotation.Finder finder =
-                field.getAnnotation(com.lidroid.xutils.db.annotation.Finder.class);
+        Finder finder =
+                field.getAnnotation(Finder.class);
         this.valueColumnName = finder.valueColumn();
         this.targetColumnName = finder.targetColumn();
     }

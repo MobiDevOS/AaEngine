@@ -3,7 +3,7 @@ package com.zhujohnle.mobidevos.framework.db.converter;
 import android.database.Cursor;
 import android.text.TextUtils;
 
-import com.lidroid.xutils.db.sqlite.ColumnDbType;
+import com.zhujohnle.mobidevos.framework.db.sqlite.ColumnDbType;
 
 import java.util.Date;
 
