@@ -5,13 +5,9 @@ import android.app.Application;
 import com.zhujohnle.mobidevos.MobiDevOsEngine;
 import com.zhujohnle.mobidevos.framework.http.core.OkHttpConfig;
 import com.zhujohnle.mobidevos.framework.http.core.interceptor.TokenInterceptor;
-import com.zhujohnle.mobidevos.framework.http.core.interceptor.Transformer;
 
 import java.util.Map;
 
-import io.reactivex.Observable;
-import io.reactivex.Observer;
-import io.reactivex.disposables.Disposable;
 import okhttp3.OkHttpClient;
 
 /**
@@ -22,10 +18,15 @@ import okhttp3.OkHttpClient;
  **/
 public class HttpEngine {
 
+   private static final int READTIMEOUT = 60;
+   private static final  int WRITETIMEOUT = 60;
+   private static final int CONNECTTIMEOUT = 20;
+
 
    //设置全局的http请求标准
-   private static void initGlobalHttpReuqest(String host, Map<String, Object> headerMaps) {
-//        获取证书
+   public static void initGlobalHttpReuqest(String host, Map<String, Object> headerMaps) {
+//     todo
+// 获取证书
 //        InputStream cerInputStream = null;
 //        InputStream bksInputStream = null;
 //        try {
@@ -55,11 +56,11 @@ public class HttpEngine {
             //3、使用bks证书和密码管理客户端证书（双向认证），使用预埋证书，校验服务端证书（自签名证书）
             //.setSslSocketFactory(bksInputStream,"123456",cerInputStream)
             //全局超时配置
-            .setReadTimeout(20)
+            .setReadTimeout(READTIMEOUT)
             //全局超时配置
-            .setWriteTimeout(20)
+            .setWriteTimeout(WRITETIMEOUT)
             //全局超时配置
-            .setConnectTimeout(20)
+            .setConnectTimeout(CONNECTTIMEOUT)
             .setAddInterceptor(new TokenInterceptor())
             //全局是否打开请求log日志
             .setDebug(MobiDevOsEngine.isDebug)
@@ -90,31 +91,11 @@ public class HttpEngine {
    }
 
 
-   public static <T> void actionHttp(Observable mObservable, IHttpEngineCallBack<T> mCallBack){
-      mObservable.compose(Transformer.<T>switchSchedulers())
-                .subscribe(new Observer() {
-                   @Override
-                   public void onSubscribe(Disposable d) {
 
-                   }
-
-                   @Override
-                   public void onNext(Object o) {
-
-                   }
-
-                   @Override
-                   public void onError(Throwable e) {
-
-                   }
-
-                   @Override
-                   public void onComplete() {
-
-                   }
-                });
-
+   public static <P> P getApiEngine(Class<P> mClas){
+      return RxHttpUtils.createApi(mClas);
    }
+
 
 
 

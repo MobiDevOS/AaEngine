@@ -1,9 +1,5 @@
 package com.zhujohnle.mobidevos.framework.core.log.config;
 
-/**
- * 作者:zft
- * 日期:2018/2/6 0006.
- */
 
 public class LogConfig {
     //标签

@@ -23,8 +23,8 @@ import okhttp3.OkHttpClient;
 
 /**
  * <pre>
- *      @author : Allen
- *      e-mail  : lygttpod@163.com
+ *      @author : ZHUJOHNLE
+ *      e-mail  : zhujohnle@gmail.com
  *      date    : 2018/05/29
  *      desc    : 统一OkHttp配置信息
  *      version : 1.0

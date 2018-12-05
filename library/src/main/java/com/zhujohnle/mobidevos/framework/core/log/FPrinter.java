@@ -11,10 +11,6 @@ import org.json.JSONException;
 
 import javax.xml.transform.TransformerException;
 
-/**
- * 作者:zft
- * 日期:2018/2/5 0005.
- */
 public class FPrinter implements IPrinter {
     private final String TAG = "FtLog";
     /**
