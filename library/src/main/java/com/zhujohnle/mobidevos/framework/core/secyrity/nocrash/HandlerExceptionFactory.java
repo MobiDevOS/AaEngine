@@ -15,6 +15,6 @@ public class HandlerExceptionFactory implements IHandlerExceptionFactory {
             return new KillAppHandler();
         }
 
-        return new IgnoreHandler();
+        return new EndCurrenPagerHandler();
     }
 }

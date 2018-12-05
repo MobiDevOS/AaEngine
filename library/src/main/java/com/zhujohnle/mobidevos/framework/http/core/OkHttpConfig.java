@@ -5,12 +5,12 @@ import android.text.TextUtils;
 
 import com.zhujohnle.mobidevos.framework.http.HttpClient;
 import com.zhujohnle.mobidevos.framework.http.SSLUtils;
-import com.zhujohnle.mobidevos.framework.http.core.reterceptor.AddCookiesInterceptor;
-import com.zhujohnle.mobidevos.framework.http.core.reterceptor.FtLogInterceptor;
-import com.zhujohnle.mobidevos.framework.http.core.reterceptor.HeaderInterceptor;
-import com.zhujohnle.mobidevos.framework.http.core.reterceptor.NetCacheInterceptor;
-import com.zhujohnle.mobidevos.framework.http.core.reterceptor.NoNetCacheInterceptor;
-import com.zhujohnle.mobidevos.framework.http.core.reterceptor.ReceivedCookiesInterceptor;
+import com.zhujohnle.mobidevos.framework.http.core.interceptor.AddCookiesInterceptor;
+import com.zhujohnle.mobidevos.framework.http.core.interceptor.FtLogInterceptor;
+import com.zhujohnle.mobidevos.framework.http.core.interceptor.HeaderInterceptor;
+import com.zhujohnle.mobidevos.framework.http.core.interceptor.NetCacheInterceptor;
+import com.zhujohnle.mobidevos.framework.http.core.interceptor.NoNetCacheInterceptor;
+import com.zhujohnle.mobidevos.framework.http.core.interceptor.ReceivedCookiesInterceptor;
 
 import java.io.File;
 import java.io.InputStream;

@@ -1,7 +1,7 @@
 package com.zhujohnle.mobidevos.framework.vinject;
 
 /**
- * Author: wyouflf
+ * Author: zhujohnle
  * Date: 13-12-5
  * Time: 下午11:25
  */

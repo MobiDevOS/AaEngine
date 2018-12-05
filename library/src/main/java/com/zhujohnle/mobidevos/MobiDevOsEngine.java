@@ -15,18 +15,21 @@ public class MobiDevOsEngine {
 
    private static MobiDevOsEngine mEngine;
 
-   public MobiDevOsEngine(Context mContext){
+   public static  boolean isDebug = false;
+
+   public MobiDevOsEngine(Context mContext,boolean isDebug){
       this.mContext = mContext;
+      this.isDebug = isDebug;
    }
 
-   public static  MobiDevOsEngine getInstace(final Context mContext) throws Exception{
+   public static  MobiDevOsEngine getInstace(final Context mContext,final boolean isDebug) throws Exception{
       if(mContext==null){
          throw new IllegalAccessException("MobiDevOsEngine need Context init");
       }
 
       synchronized (mContext){
          if(mEngine==null){
-            mEngine = new MobiDevOsEngine(mContext);
+            mEngine = new MobiDevOsEngine(mContext,isDebug);
          }
       }
       return mEngine;

@@ -1,4 +1,4 @@
-package com.zhujohnle.mobidevos.framework.http.core.reterceptor;
+package com.zhujohnle.mobidevos.framework.http.core.interceptor;
 
 
 import android.app.Dialog;

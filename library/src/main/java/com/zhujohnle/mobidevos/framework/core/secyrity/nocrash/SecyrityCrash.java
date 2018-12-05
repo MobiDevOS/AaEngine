@@ -62,20 +62,20 @@ public class SecyrityCrash {
             }
         });
 
-        Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
-            @Override
-            public void uncaughtException(Thread t, Throwable e) {
-                IHandlerException handler = childThreadFactory.get(e);
-                if (onExceptionCallBack != null) {
-                    onExceptionCallBack.onThrowException(t, e, handler);
-                }
-                if (handler == null) {
-                    defaultUncaughtExceptionHandler.uncaughtException(t, e);
-                    return;
-                }
-                handler.handler(e);
-            }
-        });
+//        Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+//            @Override
+//            public void uncaughtException(Thread t, Throwable e) {
+//                IHandlerException handler = childThreadFactory.get(e);
+//                if (onExceptionCallBack != null) {
+//                    onExceptionCallBack.onThrowException(t, e, handler);
+//                }
+//                if (handler == null) {
+//                    defaultUncaughtExceptionHandler.uncaughtException(t, e);
+//                    return;
+//                }
+//                handler.handler(e);
+//            }
+//        });
 
     }
 

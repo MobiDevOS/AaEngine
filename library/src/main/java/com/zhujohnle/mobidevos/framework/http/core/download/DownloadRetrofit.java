@@ -2,7 +2,7 @@ package com.zhujohnle.mobidevos.framework.http.core.download;
 
 
 import com.zhujohnle.mobidevos.framework.http.RetrofitClient;
-import com.zhujohnle.mobidevos.framework.http.core.reterceptor.Transformer;
+import com.zhujohnle.mobidevos.framework.http.core.interceptor.Transformer;
 
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;

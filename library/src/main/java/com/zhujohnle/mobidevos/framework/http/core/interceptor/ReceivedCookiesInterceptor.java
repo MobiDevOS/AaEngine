@@ -1,7 +1,7 @@
-package com.zhujohnle.mobidevos.framework.http.core.reterceptor;
+package com.zhujohnle.mobidevos.framework.http.core.interceptor;
 
 
-import com.zhujohnle.mobidevos.framework.http.SPKeys;
+import com.zhujohnle.mobidevos.framework.http.HttpEngineKeys;
 import com.zhujohnle.mobidevos.utils.SPUtils;
 
 import java.io.IOException;
@@ -30,7 +30,7 @@ public class ReceivedCookiesInterceptor implements Interceptor {
             for (String header : originalResponse.headers("Set-Cookie")) {
                 cookies.add(header);
             }
-            SPUtils.getInstance().put(SPKeys.COOKIE, cookies);
+            SPUtils.getInstance().put(HttpEngineKeys.COOKIE, cookies);
         }
 
         return originalResponse;

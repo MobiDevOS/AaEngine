@@ -18,11 +18,20 @@ public class MainActivity extends AppCompatActivity {
 
       VInject.inject(this);
 
-      System.out.print("gods");
+      new Thread(new Runnable() {
+         @Override
+         public void run() {
+            System.out.print(1/0);
+         }
+      }).start();
+
+
    }
 
    @OnClick(R.id.tv_click)
    public void onClickContent(){
       LogUtils.i("goods");
+      //startActivity(new Intent(MainActivity.this,TestActivity.class));
+
    }
 }

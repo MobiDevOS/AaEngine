@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013. wyouflf (wyouflf@gmail.com)
+ * Copyright (c) 2013. zhujohnle (zhujohnle@gmail.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

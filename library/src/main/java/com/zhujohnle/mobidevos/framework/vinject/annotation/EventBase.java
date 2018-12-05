@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Author: wyouflf
+ * Author: zhujohnle
  * Date: 13-9-9
  * Time: 下午12:43
  */

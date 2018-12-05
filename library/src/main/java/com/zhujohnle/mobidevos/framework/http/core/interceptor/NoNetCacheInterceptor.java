@@ -1,10 +1,10 @@
-package com.zhujohnle.mobidevos.framework.http.core.reterceptor;
-
+package com.zhujohnle.mobidevos.framework.http.core.interceptor;
 
 import com.zhujohnle.mobidevos.utils.NetworkUtils;
 
 import java.io.IOException;
 
+import okhttp3.CacheControl;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -19,22 +19,25 @@ import okhttp3.Response;
  * </pre>
  */
 
-public class NetCacheInterceptor implements Interceptor {
+public class NoNetCacheInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
 
         Request request = chain.request();
         boolean connected = NetworkUtils.isConnected();
-        if (connected) {
-            //如果有网络，缓存60s
+        //如果没有网络，则启用 FORCE_CACHE
+        if (!connected) {
+            request = request.newBuilder()
+                    .cacheControl(CacheControl.FORCE_CACHE)
+                    .build();
+
             Response response = chain.proceed(request);
-            int maxTime = 60;
             return response.newBuilder()
+                    .header("Cache-Control", "public, only-if-cached, max-stale=3600")
                     .removeHeader("Pragma")
-                    .header("Cache-Control", "public, max-age=" + maxTime)
                     .build();
         }
-        //如果没有网络，不做处理，直接返回
+        //有网络的时候，这个拦截器不做处理，直接返回
         return chain.proceed(request);
     }
 

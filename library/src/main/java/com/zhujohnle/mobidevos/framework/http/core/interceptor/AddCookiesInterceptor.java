@@ -1,8 +1,8 @@
-package com.zhujohnle.mobidevos.framework.http.core.reterceptor;
+package com.zhujohnle.mobidevos.framework.http.core.interceptor;
 
 import android.util.Log;
 
-import com.zhujohnle.mobidevos.framework.http.SPKeys;
+import com.zhujohnle.mobidevos.framework.http.HttpEngineKeys;
 import com.zhujohnle.mobidevos.utils.SPUtils;
 
 import java.io.IOException;
@@ -24,7 +24,7 @@ public class AddCookiesInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request.Builder builder = chain.request().newBuilder();
-        HashSet<String> preferences = (HashSet<String>) SPUtils.getInstance().getStringSet(SPKeys.COOKIE, new HashSet<String>());
+        HashSet<String> preferences = (HashSet<String>) SPUtils.getInstance().getStringSet(HttpEngineKeys.COOKIE, new HashSet<String>());
         if (preferences != null) {
             for (String cookie : preferences) {
                 builder.addHeader("Cookie", cookie);

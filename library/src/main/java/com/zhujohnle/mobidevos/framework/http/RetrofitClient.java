@@ -3,7 +3,7 @@ package com.zhujohnle.mobidevos.framework.http;
 
 import com.zhujohnle.mobidevos.framework.http.core.OkHttpConfig;
 import com.zhujohnle.mobidevos.framework.http.core.converter.GsonAdapter;
-import com.zhujohnle.mobidevos.framework.http.core.reterceptor.FtLogInterceptor;
+import com.zhujohnle.mobidevos.framework.http.core.interceptor.FtLogInterceptor;
 
 import java.util.concurrent.TimeUnit;
 
