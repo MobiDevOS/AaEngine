@@ -19,7 +19,11 @@ public class MyApplication extends Application {
    @Override
    public void onCreate() {
       super.onCreate();
-
+      try {
+         MobiDevOsEngine.getInstace(this);
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
       //SecyrityCrash.install();
    }
 }
