@@ -1,6 +1,7 @@
 # mobidevlibrary
 [![](https://jitpack.io/v/MobiDevOS/mobidevlibrary.svg)](https://jitpack.io/#MobiDevOS/mobidevlibrary)
-<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=a8db5d8f95bc432606fd79c3d6e494e8a97401671c27de4a8fe975382a441a3e"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="群号:628501566" title="群号:628501566">群号:628501566</a>
+
+
 
 ## 使用方法
 
@@ -38,3 +39,4 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
+<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=a8db5d8f95bc432606fd79c3d6e494e8a97401671c27de4a8fe975382a441a3e"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="群号:628501566" title="群号:628501566">群号:628501566</a>
