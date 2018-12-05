@@ -1,8 +1,8 @@
 # AaEngine
 [![](https://jitpack.io/v/MobiDevOS/mobidevlibrary.svg)](https://jitpack.io/#MobiDevOS/mobidevlibrary)
 
-
-
+为什么叫AaEngine呢，其实也就是Android-App-Engine的简称，用简称低调一点要不然有点太浮夸了，作者水平有限希望借着开源项目，努力提升自己的综合技术水平。
+---
 ## 使用方法
 
 ```
@@ -10,7 +10,7 @@ repositories {
     maven { url 'https://jitpack.io' }
 }
 
-implementation 'com.github.MobiDevOS:mobidevlibrary:V0.0.1-dev'
+implementation 'com.github.MobiDevOS:AaEngine:v0.0.1-dev-2'
 
 ```
 
