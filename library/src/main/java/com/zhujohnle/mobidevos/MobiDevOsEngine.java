@@ -1,11 +1,9 @@
 package com.zhujohnle.mobidevos;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 
-import com.zhujohnle.mobidevos.exception.PropertiesLoadException;
-import com.zhujohnle.mobidevos.framework.core.config.HttpConfig;
-import com.zhujohnle.mobidevos.framework.core.config.HttpConfigFactory;
-import com.zhujohnle.mobidevos.utils.LogUtils;
+import com.zhujohnle.mobidevos.framework.http.HttpEngine;
 
 /**
  * MobiDevOs引擎入口
@@ -21,46 +19,21 @@ public class MobiDevOsEngine {
 
    private static MobiDevOsEngine mEngine;
 
-   public static boolean isDebug = false;
+   private HttpEngine mHttpEngine;
 
-   public static final int INIT_SUCCESS = 0;
-
-   public static final int INIT_HTTP_PROPERTIES = 1;
-
-   private HttpConfig mHttpconfig;
-
-   public MobiDevOsEngine(Context mContext, boolean isDebug) {
+   public MobiDevOsEngine(Context mContext) {
       this.mContext = mContext;
-      this.isDebug = isDebug;
-   }
-
-   /**
-    * 初始化配置相关
-    * */
-   public int init(){
-      HttpConfigFactory mHttpFactory = new HttpConfigFactory();
-      try {
-         mHttpconfig =  mHttpFactory.loadConfigProperties(null);
-      } catch (PropertiesLoadException e) {
-         LogUtils.e(e.getMessage(),e);
-         return INIT_HTTP_PROPERTIES;
-      }
-      return INIT_SUCCESS;
    }
 
    public static MobiDevOsEngine getInstace(){
       return mEngine;
    }
 
-   public static MobiDevOsEngine getInstace(final Context mContext
-         , final boolean isDebug) throws Exception {
-      if (mContext == null) {
-         throw new IllegalAccessException("MobiDevOsEngine need Context init");
-      }
+   public static MobiDevOsEngine getInstace(@NonNull Context mContext)  {
 
       synchronized (mContext) {
          if (mEngine == null) {
-            mEngine = new MobiDevOsEngine(mContext, isDebug);
+            mEngine = new MobiDevOsEngine(mContext);
          }
       }
       return mEngine;
@@ -71,7 +44,11 @@ public class MobiDevOsEngine {
    }
 
 
-   private void initProperties(){
+   public void initProperties(boolean isDebug){
+      mHttpEngine = new HttpEngine(isDebug);
+   }
 
+   public HttpEngine getHttpEngine(){
+      return mHttpEngine;
    }
 }

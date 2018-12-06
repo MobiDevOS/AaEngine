@@ -13,6 +13,17 @@ public class HttpConfig extends MobiDevOsConfig{
    @Config(name = "http.readTimeOut" )
    public int readTimeOut = 20;
 
+   @Config(name = "http.writeTimeOut" )
+   public int writeTimeOut = 20;
+
+   public int getWriteTimeOut() {
+      return writeTimeOut;
+   }
+
+   public void setWriteTimeOut(int writeTimeOut) {
+      this.writeTimeOut = writeTimeOut;
+   }
+
    public int getConnectTimeOut() {
       return connectTimeOut;
    }

@@ -3,8 +3,12 @@ package com.zhujohnle.mobidevos.framework.http;
 import android.app.Application;
 
 import com.zhujohnle.mobidevos.MobiDevOsEngine;
+import com.zhujohnle.mobidevos.exception.PropertiesLoadException;
+import com.zhujohnle.mobidevos.framework.core.config.HttpConfig;
+import com.zhujohnle.mobidevos.framework.core.config.HttpConfigFactory;
 import com.zhujohnle.mobidevos.framework.http.core.OkHttpConfig;
 import com.zhujohnle.mobidevos.framework.http.core.interceptor.TokenInterceptor;
+import com.zhujohnle.mobidevos.utils.LogUtils;
 
 import java.util.Map;
 
@@ -18,13 +22,41 @@ import okhttp3.OkHttpClient;
  **/
 public class HttpEngine {
 
-   private static final int READTIMEOUT = 60;
-   private static final  int WRITETIMEOUT = 60;
-   private static final int CONNECTTIMEOUT = 20;
 
+   /*用于处理是否打印等*/
+   boolean isDebug = true;
+
+   private HttpConfig httpConfig;
+
+
+   public HttpEngine(boolean isDebug){
+      this.isDebug = isDebug;
+      init();
+   }
+
+   /**
+    * 初始化配置相关
+    * */
+   public void init(){
+      HttpConfigFactory mHttpFactory = new HttpConfigFactory();
+      try {
+         httpConfig =  mHttpFactory.loadConfigProperties(null);
+      } catch (PropertiesLoadException e) {
+         //加载配置异常直接使用默认值
+         httpConfig = new HttpConfig();
+         LogUtils.e(e.getMessage(),e);
+      }
+   }
+
+
+
+   public HttpConfig getHttpConfig() {
+      return httpConfig;
+   }
 
    //设置全局的http请求标准
-   public static void initGlobalHttpReuqest(String host, Map<String, Object> headerMaps) {
+   public  void initGlobalHttpReuqest(String host, Map<String, Object> headerMaps) {
+
 //     todo
 // 获取证书
 //        InputStream cerInputStream = null;
@@ -56,14 +88,15 @@ public class HttpEngine {
             //3、使用bks证书和密码管理客户端证书（双向认证），使用预埋证书，校验服务端证书（自签名证书）
             //.setSslSocketFactory(bksInputStream,"123456",cerInputStream)
             //全局超时配置
-            .setReadTimeout(READTIMEOUT)
+            .setReadTimeout(httpConfig.readTimeOut)
             //全局超时配置
-            .setWriteTimeout(WRITETIMEOUT)
+            .setWriteTimeout(httpConfig.writeTimeOut)
             //全局超时配置
-            .setConnectTimeout(CONNECTTIMEOUT)
+            .setConnectTimeout(httpConfig.connectTimeOut)
+
             .setAddInterceptor(new TokenInterceptor())
             //全局是否打开请求log日志
-            .setDebug(MobiDevOsEngine.isDebug)
+            .setDebug(isDebug)
             .build();
       RxHttpUtils
             .getInstance()

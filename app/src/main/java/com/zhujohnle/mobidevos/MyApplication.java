@@ -21,12 +21,12 @@ public class MyApplication extends Application {
    @Override
    public void onCreate() {
       super.onCreate();
-      try {
-         MobiDevOsEngine mobiDevOsEngine =  MobiDevOsEngine.getInstace(this,true);
-         mobiDevOsEngine.init();
-      } catch (Exception e) {
-         e.printStackTrace();
-      }
+
+      MobiDevOsEngine mobiDevOsEngine =  MobiDevOsEngine.getInstace(this);
+      mobiDevOsEngine.initProperties(true);
+
+
+
       SecyrityCrash.install();
    }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013. wyouflf (wyouflf@gmail.com)
+ * Copyright (c) 2018. zhujohnle (zhujohnle@gmail.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 /**
- * Created by wyouflf on 13-8-30.
+ * Created by zhujohnle on 13-8-30.
  */
 public class OtherUtils {
     private OtherUtils() {
