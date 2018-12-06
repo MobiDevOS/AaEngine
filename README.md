@@ -22,6 +22,12 @@ implementation 'com.github.MobiDevOS:AaEngine:v0.0.1-debug-02'
  
 ```
 
+## 愿景
+
+希望项目作为移动组件化最底层的引擎模块，被上层业务和基础组件稳定使用
+
+/app/sampledata/移动组件化.png
+
 ## 开源协议
 
 ```
@@ -41,6 +47,10 @@ limitations under the License.
 ```
 
 
+
+
+
+移动组件化.png
 ## 反馈与建议
 
 - 博客：[@CSDN](https://blog.csdn.net/zhujohnle)，[@github主页](https://mobidevos.github.io "个人博客")
