@@ -11,11 +11,6 @@ import com.zhujohnle.mobidevos.utils.LogUtils;
 import java.lang.reflect.Field;
 import java.util.List;
 
-/**
- * Author: wyouflf
- * Date: 13-9-10
- * Time: 下午7:43
- */
 public class TableFinder extends TableColumn {
 
     private final String valueColumnName;

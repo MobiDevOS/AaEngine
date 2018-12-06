@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
 
 import com.zhujohnle.mobidevos.exception.DbException;
+import com.zhujohnle.mobidevos.framework.core.log.FLog;
 import com.zhujohnle.mobidevos.framework.db.sqlite.CursorUtils;
 import com.zhujohnle.mobidevos.framework.db.sqlite.DbModelSelector;
 import com.zhujohnle.mobidevos.framework.db.sqlite.Selector;
@@ -817,7 +818,7 @@ public class DbTools {
    ///////////////////////////////////// exec sql /////////////////////////////////////////////////////
    private void debugSql(String sql) {
       if (debug) {
-         LogUtils.d(sql);
+         FLog.d(sql);
       }
    }
 

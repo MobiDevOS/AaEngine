@@ -22,7 +22,8 @@ public class MyApplication extends Application {
    public void onCreate() {
       super.onCreate();
       try {
-         MobiDevOsEngine.getInstace(this);
+         MobiDevOsEngine mobiDevOsEngine =  MobiDevOsEngine.getInstace(this,true);
+         mobiDevOsEngine.init();
       } catch (Exception e) {
          e.printStackTrace();
       }

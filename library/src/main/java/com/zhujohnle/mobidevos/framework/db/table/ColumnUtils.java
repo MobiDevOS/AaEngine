@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013. wyouflf (wyouflf@gmail.com)
+ * Copyright (c) 2018. zhujohnle (zhujohnle@gmail.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@ package com.zhujohnle.mobidevos.framework.db.table;
 
 import android.text.TextUtils;
 
+import com.zhujohnle.mobidevos.framework.core.log.FLog;
 import com.zhujohnle.mobidevos.framework.db.annotation.Check;
 import com.zhujohnle.mobidevos.framework.db.annotation.Column;
 import com.zhujohnle.mobidevos.framework.db.annotation.Finder;
@@ -29,7 +30,6 @@ import com.zhujohnle.mobidevos.framework.db.converter.ColumnConverter;
 import com.zhujohnle.mobidevos.framework.db.converter.ColumnConverterFactory;
 import com.zhujohnle.mobidevos.framework.db.sqlite.FinderLazyLoader;
 import com.zhujohnle.mobidevos.framework.db.sqlite.ForeignLazyLoader;
-import com.zhujohnle.mobidevos.utils.LogUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -77,7 +77,7 @@ public class ColumnUtils {
             try {
                 getMethod = entityType.getDeclaredMethod(methodName);
             } catch (NoSuchMethodException e) {
-                LogUtils.d(methodName + " not exist");
+                FLog.d(methodName + " not exist");
             }
         }
 
@@ -98,7 +98,7 @@ public class ColumnUtils {
             try {
                 setMethod = entityType.getDeclaredMethod(methodName, field.getType());
             } catch (NoSuchMethodException e) {
-                LogUtils.d(methodName + " not exist");
+                FLog.d(methodName + " not exist");
             }
         }
 
@@ -231,7 +231,7 @@ public class ColumnUtils {
         try {
             return entityType.getDeclaredMethod(methodName);
         } catch (NoSuchMethodException e) {
-            LogUtils.d(methodName + " not exist");
+            FLog.d(methodName + " not exist");
         }
         return null;
     }
@@ -247,7 +247,7 @@ public class ColumnUtils {
         try {
             return entityType.getDeclaredMethod(methodName, field.getType());
         } catch (NoSuchMethodException e) {
-            LogUtils.d(methodName + " not exist");
+            FLog.d(methodName + " not exist");
         }
         return null;
     }
