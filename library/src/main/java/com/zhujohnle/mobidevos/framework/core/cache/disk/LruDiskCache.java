@@ -18,8 +18,8 @@ package com.zhujohnle.mobidevos.framework.core.cache.disk;
 import com.zhujohnle.mobidevos.framework.Constant;
 import com.zhujohnle.mobidevos.framework.core.cache.FileNameGenerator;
 import com.zhujohnle.mobidevos.framework.core.cache.MD5FileNameGenerator;
+import com.zhujohnle.mobidevos.framework.core.log.FLog;
 import com.zhujohnle.mobidevos.utils.IOUtils;
-import com.zhujohnle.mobidevos.utils.LogUtils;
 
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
@@ -236,7 +236,7 @@ public final class LruDiskCache implements Closeable {
                         new OutputStreamWriter(new FileOutputStream(cache.journalFile, true), Constant.US_ASCII));
                 return cache;
             } catch (Throwable journalIsCorrupt) {
-                LogUtils.e("DiskLruCache "
+                FLog.e("DiskLruCache "
                         + directory
                         + " is corrupt: "
                         + journalIsCorrupt.getMessage()

@@ -6,9 +6,9 @@ import com.zhujohnle.mobidevos.MobiDevOsEngine;
 import com.zhujohnle.mobidevos.exception.PropertiesLoadException;
 import com.zhujohnle.mobidevos.framework.core.config.HttpConfig;
 import com.zhujohnle.mobidevos.framework.core.config.HttpConfigFactory;
+import com.zhujohnle.mobidevos.framework.core.log.FLog;
 import com.zhujohnle.mobidevos.framework.http.core.OkHttpConfig;
 import com.zhujohnle.mobidevos.framework.http.core.interceptor.TokenInterceptor;
-import com.zhujohnle.mobidevos.utils.LogUtils;
 
 import java.util.Map;
 
@@ -44,7 +44,7 @@ public class HttpEngine {
       } catch (PropertiesLoadException e) {
          //加载配置异常直接使用默认值
          httpConfig = new HttpConfig();
-         LogUtils.e(e.getMessage(),e);
+         FLog.e(e.getMessage(),e);
       }
    }
 

@@ -15,11 +15,10 @@ import com.zhujohnle.mobidevos.framework.db.sqlite.SqlInfo;
 import com.zhujohnle.mobidevos.framework.db.sqlite.SqlInfoBuilder;
 import com.zhujohnle.mobidevos.framework.db.sqlite.WhereBuilder;
 import com.zhujohnle.mobidevos.framework.db.table.DbModel;
-import com.zhujohnle.mobidevos.framework.db.table.TableId;
 import com.zhujohnle.mobidevos.framework.db.table.Table;
+import com.zhujohnle.mobidevos.framework.db.table.TableId;
 import com.zhujohnle.mobidevos.framework.db.table.TableUtils;
 import com.zhujohnle.mobidevos.utils.IOUtils;
-import com.zhujohnle.mobidevos.utils.LogUtils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -93,7 +92,7 @@ public class DbEngine {
                try {
                   dao.dropDb();
                } catch (DbException e) {
-                  LogUtils.e(e.getMessage(), e);
+                  FLog.e(e.getMessage(), e);
                }
             }
          }
@@ -781,7 +780,7 @@ public class DbEngine {
                   execNonQuery("DROP TABLE " + tableName);
                   Table.remove(this, tableName);
                } catch (Throwable e) {
-                  LogUtils.e(e.getMessage(), e);
+                  FLog.e(e.getMessage(), e);
                }
             }
 

@@ -17,10 +17,10 @@ package com.zhujohnle.mobidevos.framework.db.table;
 
 import android.database.Cursor;
 
+import com.zhujohnle.mobidevos.framework.core.log.FLog;
 import com.zhujohnle.mobidevos.framework.db.converter.ColumnConverter;
 import com.zhujohnle.mobidevos.framework.db.converter.ColumnConverterFactory;
 import com.zhujohnle.mobidevos.framework.db.sqlite.ColumnDbType;
-import com.zhujohnle.mobidevos.utils.LogUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -63,14 +63,14 @@ public class TableColumn {
             try {
                 setMethod.invoke(entity, value == null ? defaultValue : value);
             } catch (Throwable e) {
-                LogUtils.e(e.getMessage(), e);
+                FLog.e(e.getMessage(), e);
             }
         } else {
             try {
                 this.columnField.setAccessible(true);
                 this.columnField.set(entity, value == null ? defaultValue : value);
             } catch (Throwable e) {
-                LogUtils.e(e.getMessage(), e);
+                FLog.e(e.getMessage(), e);
             }
         }
     }
@@ -88,14 +88,14 @@ public class TableColumn {
                 try {
                     fieldValue = getMethod.invoke(entity);
                 } catch (Throwable e) {
-                    LogUtils.e(e.getMessage(), e);
+                    FLog.e(e.getMessage(), e);
                 }
             } else {
                 try {
                     this.columnField.setAccessible(true);
                     fieldValue = this.columnField.get(entity);
                 } catch (Throwable e) {
-                    LogUtils.e(e.getMessage(), e);
+                    FLog.e(e.getMessage(), e);
                 }
             }
         }

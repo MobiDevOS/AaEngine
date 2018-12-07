@@ -18,11 +18,11 @@ package com.zhujohnle.mobidevos.framework.db.table;
 import android.database.Cursor;
 
 import com.zhujohnle.mobidevos.exception.DbException;
+import com.zhujohnle.mobidevos.framework.core.log.FLog;
 import com.zhujohnle.mobidevos.framework.db.converter.ColumnConverter;
 import com.zhujohnle.mobidevos.framework.db.converter.ColumnConverterFactory;
 import com.zhujohnle.mobidevos.framework.db.sqlite.ColumnDbType;
 import com.zhujohnle.mobidevos.framework.db.sqlite.ForeignLazyLoader;
-import com.zhujohnle.mobidevos.utils.LogUtils;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -63,13 +63,13 @@ public class TableForeign extends TableColumn {
             try {
                 value = new ForeignLazyLoader(this, fieldValue).getAllFromDb();
             } catch (DbException e) {
-                LogUtils.e(e.getMessage(), e);
+                FLog.e(e.getMessage(), e);
             }
         } else {
             try {
                 value = new ForeignLazyLoader(this, fieldValue).getFirstFromDb();
             } catch (DbException e) {
-                LogUtils.e(e.getMessage(), e);
+                FLog.e(e.getMessage(), e);
             }
         }
 
@@ -77,14 +77,14 @@ public class TableForeign extends TableColumn {
             try {
                 setMethod.invoke(entity, value);
             } catch (Throwable e) {
-                LogUtils.e(e.getMessage(), e);
+                FLog.e(e.getMessage(), e);
             }
         } else {
             try {
                 this.columnField.setAccessible(true);
                 this.columnField.set(entity, value);
             } catch (Throwable e) {
-                LogUtils.e(e.getMessage(), e);
+                FLog.e(e.getMessage(), e);
             }
         }
     }
@@ -122,7 +122,7 @@ public class TableForeign extends TableColumn {
                         columnValue = column.getColumnValue(foreignEntities.get(0));
                     }
                 } catch (Throwable e) {
-                    LogUtils.e(e.getMessage(), e);
+                    FLog.e(e.getMessage(), e);
                 }
             } else {
                 try {
@@ -136,7 +136,7 @@ public class TableForeign extends TableColumn {
 
                     columnValue = column.getColumnValue(fieldValue);
                 } catch (Throwable e) {
-                    LogUtils.e(e.getMessage(), e);
+                    FLog.e(e.getMessage(), e);
                 }
             }
         }

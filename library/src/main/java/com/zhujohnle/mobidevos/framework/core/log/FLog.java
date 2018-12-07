@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.zhujohnle.mobidevos.framework.core.log.config.LogConfig;
 import com.zhujohnle.mobidevos.framework.core.log.i.IPrinter;
+import com.zhujohnle.mobidevos.utils.OtherUtils;
 
 import org.json.JSONException;
 
@@ -113,4 +114,19 @@ public class FLog {
                 break;
         }
     }
+
+    public static void e(String content,Throwable tr) {
+        StackTraceElement caller = OtherUtils.getCallerStackTraceElement();
+        String tag = generateTag(caller);
+        Log.e(tag, content, tr);
+    }
+
+    private static String generateTag(StackTraceElement caller) {
+        String tag = "%s.%s(L:%d)";
+        String callerClazzName = caller.getClassName();
+        callerClazzName = callerClazzName.substring(callerClazzName.lastIndexOf(".") + 1);
+        tag = String.format(tag, callerClazzName, caller.getMethodName(), caller.getLineNumber());
+        return tag;
+    }
+
 }

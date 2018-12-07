@@ -5,10 +5,10 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
 import android.view.View;
 
+import com.zhujohnle.mobidevos.framework.core.log.FLog;
 import com.zhujohnle.mobidevos.framework.vinject.annotation.EventBase;
 import com.zhujohnle.mobidevos.framework.vinject.annotation.VBind;
 import com.zhujohnle.mobidevos.framework.vinject.annotation.VPageBind;
-import com.zhujohnle.mobidevos.utils.LogUtils;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Array;
@@ -63,7 +63,7 @@ public class VInject {
             Method setContentViewMethod = handlerType.getMethod("setContentView", int.class);
             setContentViewMethod.invoke(handler, contentView.value());
          } catch (Throwable e) {
-            LogUtils.e(e.getMessage(), e);
+            FLog.e(e.getMessage(), e);
          }
       }
 
@@ -80,7 +80,7 @@ public class VInject {
                      field.set(handler, view);
                   }
                } catch (Throwable e) {
-                  LogUtils.e(e.getMessage(), e);
+                  FLog.e(e.getMessage(), e);
                }
             }
          }
@@ -115,7 +115,7 @@ public class VInject {
                            EventListenerManager.addEventMethod(finder, info, annotation, handler, method);
                         }
                      } catch (Throwable e) {
-                        LogUtils.e(e.getMessage(), e);
+                        FLog.e(e.getMessage(), e);
                      }
                   }
                }

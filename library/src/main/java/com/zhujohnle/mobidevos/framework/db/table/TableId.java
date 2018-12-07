@@ -15,8 +15,8 @@
 
 package com.zhujohnle.mobidevos.framework.db.table;
 
+import com.zhujohnle.mobidevos.framework.core.log.FLog;
 import com.zhujohnle.mobidevos.framework.db.annotation.NoAutoIncrement;
-import com.zhujohnle.mobidevos.utils.LogUtils;
 
 import java.lang.reflect.Field;
 import java.util.HashSet;
@@ -51,14 +51,14 @@ public class TableId extends TableColumn {
             try {
                 setMethod.invoke(entity, idValue);
             } catch (Throwable e) {
-                LogUtils.e(e.getMessage(), e);
+                FLog.e(e.getMessage(), e);
             }
         } else {
             try {
                 this.columnField.setAccessible(true);
                 this.columnField.set(entity, idValue);
             } catch (Throwable e) {
-                LogUtils.e(e.getMessage(), e);
+                FLog.e(e.getMessage(), e);
             }
         }
     }

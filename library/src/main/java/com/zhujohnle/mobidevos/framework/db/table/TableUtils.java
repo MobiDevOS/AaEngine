@@ -17,10 +17,10 @@ package com.zhujohnle.mobidevos.framework.db.table;
 
 import android.text.TextUtils;
 
+import com.zhujohnle.mobidevos.framework.core.log.FLog;
 import com.zhujohnle.mobidevos.framework.db.annotation.Id;
 import com.zhujohnle.mobidevos.framework.db.annotation.Table;
 import com.zhujohnle.mobidevos.framework.db.converter.ColumnConverterFactory;
-import com.zhujohnle.mobidevos.utils.LogUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -100,7 +100,7 @@ public class TableUtils {
                 addColumns2Map(entityType.getSuperclass(), primaryKeyFieldName, columnMap);
             }
         } catch (Throwable e) {
-            LogUtils.e(e.getMessage(), e);
+            FLog.e(e.getMessage(), e);
         }
     }
 

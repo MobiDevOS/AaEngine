@@ -17,13 +17,13 @@ package com.zhujohnle.mobidevos.framework.db.sqlite;
 
 import android.database.Cursor;
 
+import com.zhujohnle.mobidevos.framework.core.log.FLog;
 import com.zhujohnle.mobidevos.framework.db.DbEngine;
-import com.zhujohnle.mobidevos.framework.db.table.TableColumn;
 import com.zhujohnle.mobidevos.framework.db.table.DbModel;
+import com.zhujohnle.mobidevos.framework.db.table.Table;
+import com.zhujohnle.mobidevos.framework.db.table.TableColumn;
 import com.zhujohnle.mobidevos.framework.db.table.TableFinder;
 import com.zhujohnle.mobidevos.framework.db.table.TableId;
-import com.zhujohnle.mobidevos.framework.db.table.Table;
-import com.zhujohnle.mobidevos.utils.LogUtils;
 
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -66,7 +66,7 @@ public class CursorUtils {
             }
             return entity;
         } catch (Throwable e) {
-            LogUtils.e(e.getMessage(), e);
+            FLog.e(e.getMessage(), e);
         }
 
         return null;

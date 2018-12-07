@@ -17,9 +17,9 @@ package com.zhujohnle.mobidevos.framework.vinject;
 
 import android.view.View;
 
+import com.zhujohnle.mobidevos.framework.core.log.FLog;
 import com.zhujohnle.mobidevos.framework.vinject.annotation.EventBase;
 import com.zhujohnle.mobidevos.utils.DoubleKeyValueMap;
-import com.zhujohnle.mobidevos.utils.LogUtils;
 
 import java.lang.annotation.Annotation;
 import java.lang.ref.WeakReference;
@@ -81,7 +81,7 @@ public class EventListenerManager {
                 setEventListenerMethod.invoke(view, listener);
             }
         } catch (Throwable e) {
-            LogUtils.e(e.getMessage(), e);
+            FLog.e(e.getMessage(), e);
         }
     }
 

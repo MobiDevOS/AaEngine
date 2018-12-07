@@ -3,10 +3,10 @@ package com.zhujohnle.mobidevos.framework.db.table;
 import android.database.Cursor;
 
 import com.zhujohnle.mobidevos.exception.DbException;
+import com.zhujohnle.mobidevos.framework.core.log.FLog;
 import com.zhujohnle.mobidevos.framework.db.annotation.Finder;
 import com.zhujohnle.mobidevos.framework.db.sqlite.ColumnDbType;
 import com.zhujohnle.mobidevos.framework.db.sqlite.FinderLazyLoader;
-import com.zhujohnle.mobidevos.utils.LogUtils;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -44,13 +44,13 @@ public class TableFinder extends TableColumn {
             try {
                 value = new FinderLazyLoader(this, finderValue).getAllFromDb();
             } catch (DbException e) {
-                LogUtils.e(e.getMessage(), e);
+                FLog.e(e.getMessage(), e);
             }
         } else {
             try {
                 value = new FinderLazyLoader(this, finderValue).getFirstFromDb();
             } catch (DbException e) {
-                LogUtils.e(e.getMessage(), e);
+                FLog.e(e.getMessage(), e);
             }
         }
 
@@ -58,14 +58,14 @@ public class TableFinder extends TableColumn {
             try {
                 setMethod.invoke(entity, value);
             } catch (Throwable e) {
-                LogUtils.e(e.getMessage(), e);
+                FLog.e(e.getMessage(), e);
             }
         } else {
             try {
                 this.columnField.setAccessible(true);
                 this.columnField.set(entity, value);
             } catch (Throwable e) {
-                LogUtils.e(e.getMessage(), e);
+                FLog.e(e.getMessage(), e);
             }
         }
     }

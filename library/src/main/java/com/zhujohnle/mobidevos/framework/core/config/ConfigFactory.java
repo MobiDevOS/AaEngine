@@ -1,7 +1,7 @@
 package com.zhujohnle.mobidevos.framework.core.config;
 
 import com.zhujohnle.mobidevos.exception.PropertiesLoadException;
-import com.zhujohnle.mobidevos.utils.LogUtils;
+import com.zhujohnle.mobidevos.framework.core.log.FLog;
 
 import java.lang.reflect.Field;
 import java.util.Properties;
@@ -54,7 +54,7 @@ public abstract class ConfigFactory {
                   }
                } catch (IllegalAccessException e) {
                   String errorMsg = e.getMessage();
-                  LogUtils.e("参数：" + name + "初始化异常将使用默认参数", e);
+                  FLog.e("参数：" + name + "初始化异常将使用默认参数", e);
                }
             }
          }
