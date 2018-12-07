@@ -17,7 +17,7 @@ package com.zhujohnle.mobidevos.framework.db.sqlite;
 
 import android.database.Cursor;
 
-import com.zhujohnle.mobidevos.framework.db.DbTools;
+import com.zhujohnle.mobidevos.framework.db.DbEngine;
 import com.zhujohnle.mobidevos.framework.db.table.TableColumn;
 import com.zhujohnle.mobidevos.framework.db.table.DbModel;
 import com.zhujohnle.mobidevos.framework.db.table.TableFinder;
@@ -30,7 +30,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class CursorUtils {
 
     @SuppressWarnings("unchecked")
-    public static <T> T getEntity(final DbTools db, final Cursor cursor, Class<T> entityType, long findCacheSequence) {
+    public static <T> T getEntity(final DbEngine db, final Cursor cursor, Class<T> entityType, long findCacheSequence) {
         if (db == null || cursor == null) return null;
 
         EntityTempCache.setSeq(findCacheSequence);

@@ -1,10 +1,12 @@
 package com.zhujohnle.mobidevos.framework.core.cache;
 
 /**
- * 手机缓存策略
+ * 缓存引擎入口
  * @auth &{zhujiule}
- * @date 2018/12/5
+ * @date 2018/12/7
  * @copyright
  **/
-public class MobiRedis {
+public class CacheEngine {
+
+
 }

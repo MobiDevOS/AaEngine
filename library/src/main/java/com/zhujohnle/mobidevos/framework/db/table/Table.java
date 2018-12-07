@@ -17,7 +17,7 @@ package com.zhujohnle.mobidevos.framework.db.table;
 
 import android.text.TextUtils;
 
-import com.zhujohnle.mobidevos.framework.db.DbTools;
+import com.zhujohnle.mobidevos.framework.db.DbEngine;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +25,7 @@ import java.util.Map;
 
 public class Table {
 
-    public final DbTools db;
+    public final DbEngine db;
     public final String tableName;
     public final TableId id;
 
@@ -44,7 +44,7 @@ public class Table {
      */
     private static final HashMap<String, Table> tableMap = new HashMap<String, Table>();
 
-    private Table(DbTools db, Class<?> entityType) {
+    private Table(DbEngine db, Class<?> entityType) {
         this.db = db;
         this.tableName = TableUtils.getTableName(entityType);
         this.id = TableUtils.getId(entityType);
@@ -59,7 +59,7 @@ public class Table {
         }
     }
 
-    public static synchronized Table get(DbTools db, Class<?> entityType) {
+    public static synchronized Table get(DbEngine db, Class<?> entityType) {
         String tableKey = db.getDaoConfig().getDbName() + "#" + entityType.getName();
         Table table = tableMap.get(tableKey);
         if (table == null) {
@@ -70,12 +70,12 @@ public class Table {
         return table;
     }
 
-    public static synchronized void remove(DbTools db, Class<?> entityType) {
+    public static synchronized void remove(DbEngine db, Class<?> entityType) {
         String tableKey = db.getDaoConfig().getDbName() + "#" + entityType.getName();
         tableMap.remove(tableKey);
     }
 
-    public static synchronized void remove(DbTools db, String tableName) {
+    public static synchronized void remove(DbEngine db, String tableName) {
         if (tableMap.size() > 0) {
             String key = null;
             for (Map.Entry<String, Table> entry : tableMap.entrySet()) {

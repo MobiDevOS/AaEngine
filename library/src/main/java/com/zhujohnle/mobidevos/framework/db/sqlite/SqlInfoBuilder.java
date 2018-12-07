@@ -17,7 +17,7 @@ package com.zhujohnle.mobidevos.framework.db.sqlite;
 
 
 import com.zhujohnle.mobidevos.exception.DbException;
-import com.zhujohnle.mobidevos.framework.db.DbTools;
+import com.zhujohnle.mobidevos.framework.db.DbEngine;
 import com.zhujohnle.mobidevos.framework.db.table.TableColumn;
 import com.zhujohnle.mobidevos.framework.db.table.ColumnUtils;
 import com.zhujohnle.mobidevos.framework.db.table.TableFinder;
@@ -42,7 +42,7 @@ public class SqlInfoBuilder {
 
     //*********************************************** insert sql ***********************************************
 
-    public static SqlInfo buildInsertSqlInfo(DbTools db, Object entity) throws DbException {
+    public static SqlInfo buildInsertSqlInfo(DbEngine db, Object entity) throws DbException {
 
         List<KeyValue> keyValueList = entity2KeyValueList(db, entity);
         if (keyValueList.size() == 0) return null;
@@ -74,7 +74,7 @@ public class SqlInfoBuilder {
 
     //*********************************************** replace sql ***********************************************
 
-    public static SqlInfo buildReplaceSqlInfo(DbTools db, Object entity) throws DbException {
+    public static SqlInfo buildReplaceSqlInfo(DbEngine db, Object entity) throws DbException {
 
         List<KeyValue> keyValueList = entity2KeyValueList(db, entity);
         if (keyValueList.size() == 0) return null;
@@ -110,7 +110,7 @@ public class SqlInfoBuilder {
         return "DELETE FROM " + tableName;
     }
 
-    public static SqlInfo buildDeleteSqlInfo(DbTools db, Object entity) throws DbException {
+    public static SqlInfo buildDeleteSqlInfo(DbEngine db, Object entity) throws DbException {
         SqlInfo result = new SqlInfo();
 
         Class<?> entityType = entity.getClass();
@@ -129,7 +129,7 @@ public class SqlInfoBuilder {
         return result;
     }
 
-    public static SqlInfo buildDeleteSqlInfo(DbTools db, Class<?> entityType, Object idValue) throws DbException {
+    public static SqlInfo buildDeleteSqlInfo(DbEngine db, Class<?> entityType, Object idValue) throws DbException {
         SqlInfo result = new SqlInfo();
 
         Table table = Table.get(db, entityType);
@@ -146,7 +146,7 @@ public class SqlInfoBuilder {
         return result;
     }
 
-    public static SqlInfo buildDeleteSqlInfo(DbTools db, Class<?> entityType, WhereBuilder whereBuilder) throws DbException {
+    public static SqlInfo buildDeleteSqlInfo(DbEngine db, Class<?> entityType, WhereBuilder whereBuilder) throws DbException {
         Table table = Table.get(db, entityType);
         StringBuilder sb = new StringBuilder(buildDeleteSqlByTableName(table.tableName));
 
@@ -159,7 +159,7 @@ public class SqlInfoBuilder {
 
     //*********************************************** update sql ***********************************************
 
-    public static SqlInfo buildUpdateSqlInfo(DbTools db, Object entity, String... updateColumnNames) throws DbException {
+    public static SqlInfo buildUpdateSqlInfo(DbEngine db, Object entity, String... updateColumnNames) throws DbException {
 
         List<KeyValue> keyValueList = entity2KeyValueList(db, entity);
         if (keyValueList.size() == 0) return null;
@@ -196,7 +196,7 @@ public class SqlInfoBuilder {
         return result;
     }
 
-    public static SqlInfo buildUpdateSqlInfo(DbTools db, Object entity, WhereBuilder whereBuilder, String... updateColumnNames) throws DbException {
+    public static SqlInfo buildUpdateSqlInfo(DbEngine db, Object entity, WhereBuilder whereBuilder, String... updateColumnNames) throws DbException {
 
         List<KeyValue> keyValueList = entity2KeyValueList(db, entity);
         if (keyValueList.size() == 0) return null;
@@ -231,7 +231,7 @@ public class SqlInfoBuilder {
 
     //*********************************************** others ***********************************************
 
-    public static SqlInfo buildCreateTableSqlInfo(DbTools db, Class<?> entityType) throws DbException {
+    public static SqlInfo buildCreateTableSqlInfo(DbEngine db, Class<?> entityType) throws DbException {
         Table table = Table.get(db, entityType);
         TableId id = table.id;
 
@@ -282,7 +282,7 @@ public class SqlInfoBuilder {
         return kv;
     }
 
-    public static List<KeyValue> entity2KeyValueList(DbTools db, Object entity) {
+    public static List<KeyValue> entity2KeyValueList(DbEngine db, Object entity) {
 
         List<KeyValue> keyValueList = new ArrayList<KeyValue>();
 

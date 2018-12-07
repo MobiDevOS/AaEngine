@@ -34,14 +34,9 @@ import java.util.concurrent.locks.ReentrantLock;
  * @date 2018/12/4
  * @copyright
  **/
-public class DbTools {
+public class DbEngine {
 
-   //*************************************** create instance ****************************************************
-
-   /**
-    * key: dbName
-    */
-   private static HashMap<String, DbTools> daoMap = new HashMap<String, DbTools>();
+   private static HashMap<String, DbEngine> daoMap = new HashMap<String, DbEngine>();
 
    private SQLiteDatabase database;
    private DaoConfig daoConfig;
@@ -67,20 +62,19 @@ public class DbTools {
       }
    }
 
-   private DbTools(DaoConfig config) {
+   private DbEngine(DaoConfig config) {
       if (config == null) {
          throw new IllegalArgumentException("daoConfig may not be null");
       }
       this.database = createDatabase(config);
       this.daoConfig = config;
-      //mDbHelper = new DbHelper(,config.dbName,);
    }
 
 
-   private synchronized static DbTools getInstance(DaoConfig daoConfig) {
-      DbTools dao = daoMap.get(daoConfig.getDbName());
+   private synchronized static DbEngine getInstance(DaoConfig daoConfig) {
+      DbEngine dao = daoMap.get(daoConfig.getDbName());
       if (dao == null) {
-         dao = new DbTools(daoConfig);
+         dao = new DbEngine(daoConfig);
          daoMap.put(daoConfig.getDbName(), dao);
       } else {
          dao.daoConfig = daoConfig;
@@ -109,25 +103,25 @@ public class DbTools {
       return dao;
    }
 
-   public static DbTools create(Context context) {
+   public static DbEngine create(Context context) {
       DaoConfig config = new DaoConfig(context);
       return getInstance(config);
    }
 
-   public static DbTools create(Context context, String dbName) {
+   public static DbEngine create(Context context, String dbName) {
       DaoConfig config = new DaoConfig(context);
       config.setDbName(dbName);
       return getInstance(config);
    }
 
-   public static DbTools create(Context context, String dbDir, String dbName) {
+   public static DbEngine create(Context context, String dbDir, String dbName) {
       DaoConfig config = new DaoConfig(context);
       config.setDbDir(dbDir);
       config.setDbName(dbName);
       return getInstance(config);
    }
 
-   public static DbTools create(Context context, String dbName, int dbVersion, DbUpgradeListener dbUpgradeListener) {
+   public static DbEngine create(Context context, String dbName, int dbVersion, DbUpgradeListener dbUpgradeListener) {
       DaoConfig config = new DaoConfig(context);
       config.setDbName(dbName);
       config.setDbVersion(dbVersion);
@@ -135,7 +129,7 @@ public class DbTools {
       return getInstance(config);
    }
 
-   public static DbTools create(Context context, String dbDir, String dbName, int dbVersion, DbUpgradeListener dbUpgradeListener) {
+   public static DbEngine create(Context context, String dbDir, String dbName, int dbVersion, DbUpgradeListener dbUpgradeListener) {
       DaoConfig config = new DaoConfig(context);
       config.setDbDir(dbDir);
       config.setDbName(dbName);
@@ -144,16 +138,16 @@ public class DbTools {
       return getInstance(config);
    }
 
-   public static DbTools create(DaoConfig daoConfig) {
+   public static DbEngine create(DaoConfig daoConfig) {
       return getInstance(daoConfig);
    }
 
-   public DbTools configDebug(boolean debug) {
+   public DbEngine configDebug(boolean debug) {
       this.debug = debug;
       return this;
    }
 
-   public DbTools configAllowTransaction(boolean allowTransaction) {
+   public DbEngine configAllowTransaction(boolean allowTransaction) {
       this.allowTransaction = allowTransaction;
       return this;
    }
@@ -166,7 +160,6 @@ public class DbTools {
       return daoConfig;
    }
 
-   //*********************************************** operations ********************************************************
 
    public void saveOrUpdate(Object entity) throws DbException {
       try {
@@ -668,7 +661,7 @@ public class DbTools {
    }
 
    public interface DbUpgradeListener {
-      public void onUpgrade(DbTools db, int oldVersion, int newVersion);
+      public void onUpgrade(DbEngine db, int oldVersion, int newVersion);
    }
 
    private SQLiteDatabase createDatabase(DaoConfig config) {
@@ -891,7 +884,6 @@ public class DbTools {
       }
    }
 
-   /////////////////////// temp cache ////////////////////////////////////////////////////////////////
    private final FindTempCache findTempCache = new FindTempCache();
 
    private class FindTempCache {
