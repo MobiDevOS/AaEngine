@@ -20,7 +20,7 @@ public class MyApplication extends Application {
    public void onCreate() {
       super.onCreate();
 
-      MobiDevOsEngine mobiDevOsEngine =  MobiDevOsEngine.getInstace(null);
+      MobiDevOsEngine mobiDevOsEngine =  MobiDevOsEngine.getInstace(this);
       mobiDevOsEngine.initProperties(true);
 
 

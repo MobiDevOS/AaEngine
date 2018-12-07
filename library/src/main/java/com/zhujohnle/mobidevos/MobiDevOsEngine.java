@@ -30,6 +30,9 @@ public class MobiDevOsEngine {
    }
 
    public static MobiDevOsEngine getInstace(@NonNull Context mContext)  {
+      if(mContext==null){
+         throw new IllegalArgumentException("u can't instantiate me...");
+      }
 
       synchronized (mContext) {
          if (mEngine == null) {
@@ -40,6 +43,9 @@ public class MobiDevOsEngine {
    }
 
    public static Context getContext() {
+      if(mContext==null){
+         throw new IllegalArgumentException(" please init Engine first");
+      }
       return mContext;
    }
 
@@ -49,6 +55,9 @@ public class MobiDevOsEngine {
    }
 
    public HttpEngine getHttpEngine(){
+      if(mHttpEngine==null){
+         throw new IllegalArgumentException(" please init Engine first");
+      }
       return mHttpEngine;
    }
 }

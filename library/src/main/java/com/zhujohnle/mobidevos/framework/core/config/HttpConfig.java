@@ -8,13 +8,13 @@ package com.zhujohnle.mobidevos.framework.core.config;
 public class HttpConfig extends MobiDevOsConfig{
 
    @Config(name = "http.connectTimeOut")
-   public int connectTimeOut = 20;
+   private int connectTimeOut = 20;
 
    @Config(name = "http.readTimeOut" )
-   public int readTimeOut = 20;
+   private int readTimeOut = 20;
 
    @Config(name = "http.writeTimeOut" )
-   public int writeTimeOut = 20;
+   private int writeTimeOut = 20;
 
    public int getWriteTimeOut() {
       return writeTimeOut;

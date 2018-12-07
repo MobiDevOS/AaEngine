@@ -24,7 +24,7 @@ public class HttpEngine {
 
 
    /*用于处理是否打印等*/
-   boolean isDebug = true;
+   boolean isDebug;
 
    private HttpConfig httpConfig;
 
@@ -88,11 +88,11 @@ public class HttpEngine {
             //3、使用bks证书和密码管理客户端证书（双向认证），使用预埋证书，校验服务端证书（自签名证书）
             //.setSslSocketFactory(bksInputStream,"123456",cerInputStream)
             //全局超时配置
-            .setReadTimeout(httpConfig.readTimeOut)
+            .setReadTimeout(httpConfig.getReadTimeOut())
             //全局超时配置
-            .setWriteTimeout(httpConfig.writeTimeOut)
+            .setWriteTimeout(httpConfig.getWriteTimeOut())
             //全局超时配置
-            .setConnectTimeout(httpConfig.connectTimeOut)
+            .setConnectTimeout(httpConfig.getConnectTimeOut())
 
             .setAddInterceptor(new TokenInterceptor())
             //全局是否打开请求log日志
