@@ -13,6 +13,7 @@ repositories {
 implementation 'com.github.MobiDevOS:AaEngine:v0.0.1-debug-02'
 
 ```
+细则参考wiki [@AaEngine Wiki](https://github.com/MobiDevOS/AaEngine/wiki "wiki")
 
 ## 添加权限
 ```
@@ -27,6 +28,7 @@ implementation 'com.github.MobiDevOS:AaEngine:v0.0.1-debug-02'
 希望项目作为移动组件化最底层的引擎模块，被上层业务和基础组件稳定使用
 
 ![Alt text](/app/sampledata/移动组件化.png)
+
 
 
 ## 开源协议
