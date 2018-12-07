@@ -1,4 +1,4 @@
-package com.zhujohnle.mobidevos.adapter.vadapter;
+package com.zhujohnle.mobidevos.framework.android.adapter.vadapter;
 
 
 import android.content.Context;

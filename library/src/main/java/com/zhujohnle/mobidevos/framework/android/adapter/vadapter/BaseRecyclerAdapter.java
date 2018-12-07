@@ -1,4 +1,4 @@
-package com.zhujohnle.mobidevos.adapter.vadapter;
+package com.zhujohnle.mobidevos.framework.android.adapter.vadapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
