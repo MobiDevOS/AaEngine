@@ -12,11 +12,8 @@ repositories {
 
 implementation 'com.github.MobiDevOS:AaEngine:v0.0.1-debug-02'
 
-细则参考wiki [@AaEngine Wiki](https://github.com/MobiDevOS/AaEngine/wiki "wiki")
-
-<a>wiki使用<a>
-
 ```
+细则参考wiki [@AaEngine Wiki](https://github.com/MobiDevOS/AaEngine/wiki "wiki")
 
 ## 添加权限
 ```
