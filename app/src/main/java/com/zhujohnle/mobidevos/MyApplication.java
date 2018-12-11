@@ -3,6 +3,8 @@ package com.zhujohnle.mobidevos;
 import android.app.Application;
 import android.content.res.Configuration;
 
+import com.zhujohnle.mobidevos.framework.core.secyrity.nocrash.SecyrityCrash;
+
 /**
  * @auth &{zhujiule}
  * @date 2018/12/4
@@ -25,6 +27,6 @@ public class MyApplication extends Application {
 
 
 
-      //SecyrityCrash.install();
+      SecyrityCrash.install();
    }
 }

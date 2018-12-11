@@ -5,5 +5,6 @@ package com.zhujohnle.mobidevos.architecture.mvp;
  * @date 2018/12/9
  * @copyright
  **/
-public class BaseModel {
+public interface BaseModel {
+
 }

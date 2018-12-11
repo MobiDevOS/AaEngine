@@ -5,16 +5,31 @@ package com.zhujohnle.mobidevos.architecture.mvp;
  * @date 2018/12/7
  * @copyright
  **/
-public abstract class BasePresenter {
+public abstract class BasePresenter <T extends BaseView>  {
 
-   BaseView mBaseView;
 
-   public BaseView getView(){
-      return mBaseView;
+   private T mView;
+
+   public void attachView(T mvpView) {
+      this.mView = mvpView;
    }
 
-   public abstract void attachView(BaseView mBaseView);
+   public void detachView() {
+      this.mView = null;
+   }
 
-   public abstract void detachView();
+
+
+   public boolean isViewBind() {
+      return mView != null;
+   }
+
+
+   public T getView() {
+      return mView;
+   }
+
+
+
 
 }

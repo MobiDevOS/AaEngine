@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/loadingStateRelativeLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+        <!--   "BallPulseIndicator",
+           "BallGridPulseIndicator",
+           "BallClipRotateIndicator",
+           "BallClipRotatePulseIndicator",
+           "SquareSpinIndicator",
+           "BallClipRotateMultipleIndicator",
+           "BallPulseRiseIndicator",
+           "BallRotateIndicator",
+           "CubeTransitionIndicator",
+           "BallZigZagIndicator",
+           "BallZigZagDeflectIndicator",
+           "BallTrianglePathIndicator",
+           "BallScaleIndicator",
+           "LineScaleIndicator",
+           "LineScalePartyIndicator",
+           "BallScaleMultipleIndicator",
+           "BallPulseSyncIndicator",
+           "BallBeatIndicator",
+           "LineScalePulseOutIndicator",
+           "LineScalePulseOutRapidIndicator",
+           "BallScaleRippleIndicator",
+           "BallScaleRippleMultipleIndicator",
+           "BallSpinFadeLoaderIndicator",
+           "LineSpinFadeLoaderIndicator",
+           "TriangleSkewSpinIndicator",
+           "PacmanIndicator",
+           "BallGridBeatIndicator",
+           "SemiCircleSpinIndicator",
+           "com.wang.avi.sample.MyCustomIndicator"-->
+        <View
+            android:id="@+id/loadingStateProgressBar"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="0dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="加载中" />
+
+    </LinearLayout>
+</RelativeLayout>

@@ -21,7 +21,7 @@ public class PresenterProxy {
                for (Annotation ann : cls.getDeclaredAnnotations()) {
                   if (ann instanceof Contact) {
                      try {
-                        mBasePresenter = (BasePresenter) ((Contact) ann).name().newInstance();
+                        mBasePresenter = (BasePresenter) ((Contact) ann).value().newInstance();
                      } catch (InstantiationException e) {
                         e.printStackTrace();
                      } catch (IllegalAccessException e) {

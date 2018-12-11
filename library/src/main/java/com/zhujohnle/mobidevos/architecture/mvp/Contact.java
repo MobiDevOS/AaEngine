@@ -7,5 +7,5 @@ package com.zhujohnle.mobidevos.architecture.mvp;
  * @copyright
  **/
 public @interface Contact {
-   Class name();
+   Class value();
 }

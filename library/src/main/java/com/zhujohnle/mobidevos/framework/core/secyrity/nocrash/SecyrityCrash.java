@@ -3,6 +3,8 @@ package com.zhujohnle.mobidevos.framework.core.secyrity.nocrash;
 import android.os.Handler;
 import android.os.Looper;
 
+import com.zhujohnle.mobidevos.framework.core.log.FLog;
+
 /**
  * Created by zhangzheng on 2017/4/5.
  */
@@ -62,20 +64,21 @@ public class SecyrityCrash {
             }
         });
 
-//        Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
-//            @Override
-//            public void uncaughtException(Thread t, Throwable e) {
-//                IHandlerException handler = childThreadFactory.get(e);
-//                if (onExceptionCallBack != null) {
-//                    onExceptionCallBack.onThrowException(t, e, handler);
-//                }
-//                if (handler == null) {
-//                    defaultUncaughtExceptionHandler.uncaughtException(t, e);
-//                    return;
-//                }
-//                handler.handler(e);
-//            }
-//        });
+        Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+            @Override
+            public void uncaughtException(Thread t, Throwable e) {
+                FLog.e("zhujohnle",e);
+                IHandlerException handler = childThreadFactory.get(e);
+                if (onExceptionCallBack != null) {
+                    onExceptionCallBack.onThrowException(t, e, handler);
+                }
+                if (handler == null) {
+                    defaultUncaughtExceptionHandler.uncaughtException(t, e);
+                    return;
+                }
+                handler.handler(e);
+            }
+        });
 
     }
 

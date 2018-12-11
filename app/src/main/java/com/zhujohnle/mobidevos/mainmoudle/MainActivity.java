@@ -1,16 +1,20 @@
-package com.zhujohnle.mobidevos;
+package com.zhujohnle.mobidevos.mainmoudle;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.zhujohnle.mobidevlibrary.R;
+import com.zhujohnle.mobidevos.BaseActivity;
+import com.zhujohnle.mobidevos.RecyclePageActivity;
 import com.zhujohnle.mobidevos.framework.core.log.FLog;
 import com.zhujohnle.mobidevos.framework.vinject.VInject;
 import com.zhujohnle.mobidevos.framework.vinject.annotation.OnClick;
 import com.zhujohnle.mobidevos.framework.vinject.annotation.VPageBind;
 
 @VPageBind(R.layout.activity_main)
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
+
+   MainPresenter mainPresenter;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -18,20 +22,18 @@ public class MainActivity extends AppCompatActivity {
 
       VInject.inject(this);
 
-      new Thread(new Runnable() {
-         @Override
-         public void run() {
-            System.out.print(1/0);
-         }
-      }).start();
+    //  mainPresenter = (MainPresenter) mPresenter;
+   }
 
-
+   @Override
+   public Class getContact() {
+      return MainContact.class;
    }
 
    @OnClick(R.id.tv_click)
    public void onClickContent(){
       FLog.i("goods");
-      //startActivity(new Intent(MainActivity.this,TestActivity.class));
+      startActivity(new Intent(MainActivity.this,RecyclePageActivity.class));
 
    }
 }

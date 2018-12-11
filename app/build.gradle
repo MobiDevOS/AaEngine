@@ -41,6 +41,8 @@ dependencies {
 
     implementation "io.reactivex.rxjava2:rxjava:2.0.7"
     implementation "io.reactivex.rxjava2:rxandroid:2.0.1"
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-16'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-16'//没有使用特殊Header，可以不加这行
 
     compile project(path: ':library')
 }

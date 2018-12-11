@@ -1,5 +1,8 @@
 package com.zhujohnle.mobidevos.architecture.mvp;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+
 /**
  *
  * 代理activity的属性
@@ -7,7 +10,9 @@ package com.zhujohnle.mobidevos.architecture.mvp;
  * @date 2018/12/7
  * @copyright
  **/
-public class IProxyActivity {
+public interface IProxyActivity {
 
+    void onCreate(@Nullable Bundle savedInstanceState) ;
 
+    void onDestroy();
 }
