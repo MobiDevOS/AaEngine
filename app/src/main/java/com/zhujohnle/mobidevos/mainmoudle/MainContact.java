@@ -8,7 +8,6 @@ import com.zhujohnle.mobidevos.architecture.mvp.Contact;
  * @copyright
  **/
 @Contact(MainPresenter.class)
-public class MainContact  {
-
+public interface MainContact  {
 
 }

@@ -21,7 +21,7 @@ public abstract  class BaseActivity  extends FragmentActivity implements BaseVie
    protected void onCreate(@Nullable Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       mLogicProxy = new PresenterProxy();
-      //initPresenter();
+      initPresenter();
    }
 
 

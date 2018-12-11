@@ -30,7 +30,7 @@ public class EmptyView extends FrameLayout {
     }
 
     private void init() {
-        View contentView = LayoutInflater.from(getContext()).inflate(R.layout.status_err, this, false);
+        View contentView = LayoutInflater.from(getContext()).inflate(R.layout.status_empty, this, false);
 
         this.tvDesc = contentView.findViewById(R.id.tv_dsc);
 

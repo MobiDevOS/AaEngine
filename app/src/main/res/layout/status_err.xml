@@ -2,15 +2,17 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@color/cardview_dark_background"
     android:layout_height="match_parent">
 
      <TextView  android:layout_width="match_parent"
                 android:id="@+id/tv_dsc"
                 android:gravity="center"
                 android:text="异常"
+                android:textColor="@color/cardview_light_background"
+
+                android:textSize="50sp"
                 android:layout_height="match_parent">
-
-
     </TextView>
 
 

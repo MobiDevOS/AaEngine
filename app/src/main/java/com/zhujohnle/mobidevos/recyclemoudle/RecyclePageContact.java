@@ -1,9 +1,19 @@
 package com.zhujohnle.mobidevos.recyclemoudle;
 
+import com.zhujohnle.mobidevos.architecture.mvp.Contact;
+import com.zhujohnle.mobidevos.beans.RecycleViewData;
+import com.zhujohnle.mobidevos.recypage.ArrayView;
+
 /**
  * @auth &{zhujiule}
  * @date 2018/12/11
- * @copyright 杭州物恋网科技有限公司
+ * @copyright
  **/
-public class RecyclePageContact {
+
+@Contact(RecycleViewPagePresenter.class)
+public interface RecyclePageContact  {
+
+   public interface PageView extends ArrayView<RecycleViewData>{
+
+   }
 }

@@ -22,7 +22,7 @@ public class MainActivity extends BaseActivity {
 
       VInject.inject(this);
 
-    //  mainPresenter = (MainPresenter) mPresenter;
+      mainPresenter = (MainPresenter) mPresenter;
    }
 
    @Override
