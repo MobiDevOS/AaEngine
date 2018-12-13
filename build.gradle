@@ -12,6 +12,8 @@ buildscript {
 
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
 
+
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -22,10 +24,59 @@ allprojects {
         google()
         jcenter()
     }
+
+    tasks.withType(Javadoc) {
+        options{ encoding "UTF-8"
+            charSet 'UTF-8'
+            links "http://docs.oracle.com/javase/7/docs/api"
+        }
+    }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+
+ext {
+    minSdkVersion = 19
+    compileSdkVersion = 28
+    targetSdkVersion = compileSdkVersion
+
+
+    supportLibraryVersion = '28.0.0'
+    appCompat = "com.android.support:appcompat-v7:$supportLibraryVersion"
+    supportAnnotations = "com.android.support:support-annotations:$supportLibraryVersion"
+    supportFragment = "com.android.support:support-fragment:$supportLibraryVersion"
+    recyclerviewV7 = "com.android.support:recyclerview-v7:$supportLibraryVersion"
+    design="com.android.support:design:$supportLibraryVersion"
+
+    junit = 'junit:junit:4.12'
+    mockito = 'org.mockito:mockito-core:1.10.19'
+
+
+    rxJava = 'io.reactivex.rxjava2:rxjava:2.1.16'
+    rxAndroid = 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
+    bintrayRepo = 'MobiDevOs'
+    bintrayName = 'AaEngine-Basic'
+
+    publishedGroupId = 'com.zhujohnle.mobidevos'
+    artifact = 'AaEngine-Basic'
+    libraryName = 'AaEngine-Basic'
+    libraryVersion = '0.0.1'
+
+    libraryDescription = 'A wrapper for Android structure'
+
+    siteUrl = 'https://github.com/mobidevos/AaEngine'
+    gitUrl = 'https://github.com/mobidevos/AaEngine.git'
+
+    developerId = 'zhujohle'
+    developerName = 'zhujohle'
+    developerEmail = 'zhujohnle@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
 
