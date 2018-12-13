@@ -2,7 +2,7 @@ package com.zhujohnle.mobidevos.framework.http;
 
 import android.app.Application;
 
-import com.zhujohnle.mobidevos.MobiDevOsEngine;
+import com.zhujohnle.mobidevos.AaEngine;
 import com.zhujohnle.mobidevos.exception.PropertiesLoadException;
 import com.zhujohnle.mobidevos.framework.core.config.HttpConfig;
 import com.zhujohnle.mobidevos.framework.core.config.HttpConfigFactory;
@@ -100,7 +100,7 @@ public class HttpEngine {
             .build();
       RxHttpUtils
             .getInstance()
-            .init((Application) MobiDevOsEngine.getContext())
+            .init((Application) AaEngine.getContext())
             .config()
             //配置全局baseUrl
             .setBaseUrl(host)

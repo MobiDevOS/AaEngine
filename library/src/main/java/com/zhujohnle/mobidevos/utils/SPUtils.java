@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v4.util.SimpleArrayMap;
 
-import com.zhujohnle.mobidevos.MobiDevOsEngine;
+import com.zhujohnle.mobidevos.AaEngine;
 
 import java.util.Collections;
 import java.util.Map;
@@ -73,11 +73,11 @@ public final class SPUtils {
     }
 
     private SPUtils(final String spName) {
-        sp = MobiDevOsEngine.getContext().getSharedPreferences(spName, Context.MODE_PRIVATE);
+        sp = AaEngine.getContext().getSharedPreferences(spName, Context.MODE_PRIVATE);
     }
 
     private SPUtils(final String spName, final int mode) {
-        sp = MobiDevOsEngine.getContext().getSharedPreferences(spName, mode);
+        sp = AaEngine.getContext().getSharedPreferences(spName, mode);
     }
 
     /**

@@ -25,7 +25,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.zhujohnle.mobidevos.MobiDevOsEngine;
+import com.zhujohnle.mobidevos.AaEngine;
 
 import java.lang.reflect.Field;
 
@@ -229,11 +229,11 @@ public final class ToastUtils {
     }
 
     private static void show(@StringRes final int resId, final int duration) {
-        show(MobiDevOsEngine.getContext().getResources().getText(resId).toString(), duration);
+        show(AaEngine.getContext().getResources().getText(resId).toString(), duration);
     }
 
     private static void show(@StringRes final int resId, final int duration, final Object... args) {
-        show(String.format(MobiDevOsEngine.getContext().getResources().getString(resId), args), duration);
+        show(String.format(AaEngine.getContext().getResources().getString(resId), args), duration);
     }
 
     private static void show(final String format, final int duration, final Object... args) {
@@ -246,7 +246,7 @@ public final class ToastUtils {
             @Override
             public void run() {
                 cancel();
-                sToast = Toast.makeText(MobiDevOsEngine.getContext(), text, duration);
+                sToast = Toast.makeText(AaEngine.getContext(), text, duration);
                 final TextView tvMessage = sToast.getView().findViewById(android.R.id.message);
                 if (sMsgColor != COLOR_DEFAULT) {
                     tvMessage.setTextColor(sMsgColor);
@@ -273,7 +273,7 @@ public final class ToastUtils {
             @Override
             public void run() {
                 cancel();
-                sToast = Toast.makeText(MobiDevOsEngine.getContext(), text, duration);
+                sToast = Toast.makeText(AaEngine.getContext(), text, duration);
                 final TextView tvMessage = sToast.getView().findViewById(android.R.id.message);
 
                 tvMessage.setTextColor(textcolor);
@@ -317,7 +317,7 @@ public final class ToastUtils {
             @Override
             public void run() {
                 cancel();
-                sToast = new Toast(MobiDevOsEngine.getContext());
+                sToast = new Toast(AaEngine.getContext());
                 sToast.setView(view);
                 sToast.setDuration(duration);
                 if (sGravity != -1 || sXOffset != -1 || sYOffset != -1) {
@@ -387,14 +387,14 @@ public final class ToastUtils {
 
     private static View getView(@LayoutRes final int layoutId) {
         LayoutInflater inflate =
-                (LayoutInflater) MobiDevOsEngine.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                (LayoutInflater) AaEngine.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         return inflate != null ? inflate.inflate(layoutId, null) : null;
     }
 
     private static final class ApplicationContextWrapperForApi25 extends ContextWrapper {
 
         ApplicationContextWrapperForApi25() {
-            super(MobiDevOsEngine.getContext());
+            super(AaEngine.getContext());
         }
 
         @Override

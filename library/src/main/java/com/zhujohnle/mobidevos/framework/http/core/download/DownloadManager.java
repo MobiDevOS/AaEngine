@@ -4,7 +4,7 @@ package com.zhujohnle.mobidevos.framework.http.core.download;
 
 
 
-import com.zhujohnle.mobidevos.MobiDevOsEngine;
+import com.zhujohnle.mobidevos.AaEngine;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -34,7 +34,7 @@ public class DownloadManager {
      */
     public File saveFile(ResponseBody response, final String destFileName, ProgressListener progressListener) throws IOException {
 
-        String destFileDir = MobiDevOsEngine.getContext().getExternalFilesDir(null) + File.separator;
+        String destFileDir = AaEngine.getContext().getExternalFilesDir(null) + File.separator;
 
         long contentLength = response.contentLength();
         InputStream is = null;

@@ -2,7 +2,7 @@ package com.zhujohnle.mobidevos.framework.core.config;
 
 import android.text.TextUtils;
 
-import com.zhujohnle.mobidevos.MobiDevOsEngine;
+import com.zhujohnle.mobidevos.AaEngine;
 import com.zhujohnle.mobidevos.exception.PropertiesLoadException;
 import com.zhujohnle.mobidevos.framework.core.log.FLog;
 
@@ -36,7 +36,7 @@ public class HttpConfigFactory extends ConfigFactory {
    private  Properties getProperties(String fileName) {
       Properties props = new Properties();
       try {
-         InputStream in =  MobiDevOsEngine.getContext().getAssets().open(fileName);
+         InputStream in =  AaEngine.getContext().getAssets().open(fileName);
          props.load(in);
       } catch (Exception e1) {
          FLog.i(e1.getMessage());

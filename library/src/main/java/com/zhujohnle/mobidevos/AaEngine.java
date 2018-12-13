@@ -12,31 +12,31 @@ import com.zhujohnle.mobidevos.framework.http.HttpEngine;
  * @date 2018/12/5
  * @copyright
  **/
-public class MobiDevOsEngine {
+public class AaEngine {
 
    //全局application入口
    private static Context mContext;
 
-   private static MobiDevOsEngine mEngine;
+   private static AaEngine mEngine;
 
    private HttpEngine mHttpEngine;
 
-   public MobiDevOsEngine(Context mContext) {
+   public AaEngine(Context mContext) {
       this.mContext = mContext;
    }
 
-   public static MobiDevOsEngine getInstace(){
+   public static AaEngine getInstace(){
       return mEngine;
    }
 
-   public static MobiDevOsEngine getInstace(@NonNull Context mContext)  {
+   public static AaEngine getInstace(@NonNull Context mContext)  {
       if(mContext==null){
          throw new IllegalArgumentException("u can't instantiate me...");
       }
 
       synchronized (mContext) {
          if (mEngine == null) {
-            mEngine = new MobiDevOsEngine(mContext);
+            mEngine = new AaEngine(mContext);
          }
       }
       return mEngine;

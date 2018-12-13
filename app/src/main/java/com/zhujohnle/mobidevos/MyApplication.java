@@ -22,7 +22,7 @@ public class MyApplication extends Application {
    public void onCreate() {
       super.onCreate();
 
-      MobiDevOsEngine mobiDevOsEngine =  MobiDevOsEngine.getInstace(this);
+      AaEngine mobiDevOsEngine =  AaEngine.getInstace(this);
       mobiDevOsEngine.initProperties(true);
 
 
