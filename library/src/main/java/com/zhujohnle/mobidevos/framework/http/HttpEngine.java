@@ -31,16 +31,20 @@ public class HttpEngine {
 
    public HttpEngine(boolean isDebug){
       this.isDebug = isDebug;
-      init();
+      init(null);
    }
 
+   public HttpEngine(boolean isDebug,String propertiesName){
+      this.isDebug = isDebug;
+      init(propertiesName);
+   }
    /**
     * 初始化配置相关
     * */
-   public void init(){
+   public void init(String propertiesName){
       HttpConfigFactory mHttpFactory = new HttpConfigFactory();
       try {
-         httpConfig =  mHttpFactory.loadConfigProperties(null);
+         httpConfig =  mHttpFactory.loadConfigProperties(propertiesName);
       } catch (PropertiesLoadException e) {
          //加载配置异常直接使用默认值
          httpConfig = new HttpConfig();

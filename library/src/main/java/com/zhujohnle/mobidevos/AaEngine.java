@@ -50,8 +50,9 @@ public class AaEngine {
    }
 
 
-   public void initProperties(boolean isDebug){
-      mHttpEngine = new HttpEngine(isDebug);
+   public AaEngine initHttpProperties(boolean isDebug,String propertiesName){
+      mHttpEngine = new HttpEngine(isDebug,propertiesName);
+      return this;
    }
 
    public HttpEngine getHttpEngine(){
